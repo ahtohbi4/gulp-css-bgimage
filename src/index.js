@@ -8,9 +8,7 @@ var through = require('through2');
  * 'bgImageCutterInvertor'
  */
 module.exports = function(config) {
-    var _this = this;
-
-    this.methods = {
+    var methods = {
         bgImageCutter: function (str) {
             return str.replace(/background(?:-image)?[\s]*:.*url\([^\)]*\)[^;\}]*[;\}]/ig, '');
         },
@@ -22,7 +20,7 @@ module.exports = function(config) {
     return through.obj(function (file, enc, callback) {
         if (file.isBuffer()) {
             try {
-                file.contents = _this.methods[config.method].call(this, file.contents.toString('utf-8'));
+                file.contents = new Buffer(methods[config.method].call(this, file.contents.toString('utf-8')));
             } catch (err) {
                 console.log('Error ' + err.name + ": " + err.message + "\n" + err.stack);
             }

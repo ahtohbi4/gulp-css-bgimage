@@ -1,6 +1,6 @@
 {
   "name": "gulp-css-bgimage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plugin for Gulp to cut or invert background-images in css",
   "main": "src/index.js",
   "repository": {
@@ -19,5 +19,9 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/ahtohbi4/gulp-css-bgimage/issues"
+  },
+  "dependencies": {
+    "gulp": "~3.9.0",
+    "through2": "^2.0.0"
   }
 }

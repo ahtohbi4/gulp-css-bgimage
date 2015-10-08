@@ -22,7 +22,7 @@ module.exports = function(config) {
             try {
                 file.contents = new Buffer(methods[config.method].call(this, file.contents.toString('utf-8')));
             } catch (err) {
-                console.log('Error ' + err.name + ": " + err.message + "\n" + err.stack);
+                console.log('Error ', err.name, ': ', err.message, '\n', err.stack);
             }
         }
 
